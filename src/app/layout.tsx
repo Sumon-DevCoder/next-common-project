@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google"; // Import Hanken Grotesk font
 import "./globals.css";
+import TopLoader from "./components/TopLoader";
+import ScrollToTopButton from "./components/ScrollTopButton";
+import ReduxProvider from "./provider/ReduxProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Load the Hanken Grotesk font
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
   subsets: ["latin"],
 });
 
@@ -25,9 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${hankenGrotesk.variable} antialiased bg-[#FFFFFF] text-black`}
+        style={{ fontFamily: "var(--font-hanken-grotesk), sans-serif" }}
       >
-        {children}
+        <div className="">
+          <TopLoader />
+          <ScrollToTopButton />
+          <ReduxProvider>{children}</ReduxProvider>
+        </div>
       </body>
     </html>
   );
