@@ -20,10 +20,10 @@ const useNavLinks = () => {
       <Link href="/product" className={getLinkClass("/product")}>
         Products
       </Link>
-      <Link href="/about" className={getLinkClass("/about")}>
+      <Link href="/about-us" className={getLinkClass("/about-us")}>
         About
       </Link>
-      <Link href="/contact" className={getLinkClass("/contact")}>
+      <Link href="/contact-us" className={getLinkClass("/contact-us")}>
         Contact
       </Link>
       {role === "user" && (
